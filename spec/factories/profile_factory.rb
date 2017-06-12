@@ -10,7 +10,6 @@
 #  user_name                  :string
 #  description                :string
 #  twitter_account            :string
-#  profiles_id                :integer
 #  user_id                    :integer
 #  created_at                 :datetime         not null
 #  updated_at                 :datetime         not null
@@ -18,20 +17,14 @@
 #
 # Indexes
 #
-#  index_profiles_on_profiles_id  (profiles_id)
 #  index_profiles_on_user_id      (user_id)
 #
-
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
-  profile_image: 
-  user_name: MyString
-  description: MyString
-  twitter_account: MyString
-
-two:
-  profile_image: 
-  user_name: MyString
-  description: MyString
-  twitter_account: MyString
+FactoryGirl.define do
+  factory :profile do
+    user_name { Faker::Name.name}
+    image_link { Faker::Avatar.image }
+    description { Faker::Lorem.paragraph }
+    twitter_account { Faker::Twitter.screen_name }
+    association :user, :factory => :user
+  end
+end
