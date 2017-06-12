@@ -18,6 +18,7 @@ Things you may want to cover:
 * Database creation
 
   You should rename database.yml.example to database.yml in config/ folder
+  You should exec rake db:seed
 
 * Database initialization
 

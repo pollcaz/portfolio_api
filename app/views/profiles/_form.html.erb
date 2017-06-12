@@ -1,0 +1,45 @@
+<%= form_for(profile, html: {class: "form-horizontal"}) do |f| %>
+  <% if profile.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(profile.errors.count, "error") %> prohibited this profile from being saved:</h2>
+
+      <ul>
+      <% profile.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label 'User Name', class: 'col-sm-2 control-label' %>
+    <div class="col-sm-6">
+      <%= f.text_field :user_name, autofocus: true, class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label 'Image Link', class: 'col-sm-2 control-label' %>
+    <div class="col-sm-6">
+      <%= f.text_field :image_link, class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label 'Description', class: 'col-sm-2 control-label' %>
+    <div class="col-sm-6">
+      <%= f.text_area :description, size: "50x7", class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label 'Twitter Account', class: 'col-sm-2 control-label' %>
+    <div class="col-sm-3">
+      <%= f.text_field :twitter_account, class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="actions">
+    <%= f.submit 'Save', class: 'btn btn-success' %>
+  </div>
+<% end %>
