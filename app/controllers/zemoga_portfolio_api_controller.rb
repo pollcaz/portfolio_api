@@ -5,6 +5,7 @@ class ZemogaPortfolioApiController < BaseApiController
   # get user profile info an it returns in the profile record in json format
   # request example:
   # * http://localhost:3000/zemoga_portfolio_api/user_info?id=1
+  # $ curl -X GET 'http://localhost:3000/zemoga_portfolio_api/user_info?id=1'
   # in case an error ocurrs it will return the error message in json format too
   def user_info
     profile = Profile.find(params[:id])
@@ -23,6 +24,7 @@ class ZemogaPortfolioApiController < BaseApiController
   end
 
   private
+
   # just permit this params to be updated by the post request
   def profile_params
     params.permit(:user_name, :description, :twitter_account, :image_link)
