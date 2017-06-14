@@ -2,14 +2,14 @@
 FactoryGirl.define do
   factory :user, class: User do |_f|
     email { Faker::Internet.email }
-    passsword {'123456'}
+    password { '123456' }
 
     trait :with_profile do
       transient do
         user_name { Faker::Name.name }
         image_link { Faker::Avatar.image }
         description { Faker::Lorem.paragraph }
-        twitter_account { Faker::Twitter.screen_name }
+        twitter_account { Faker::Twitter.user[:screen_name] }
       end
 
       after :create do |user, e|
